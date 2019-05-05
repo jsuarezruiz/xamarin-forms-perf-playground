@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAMLCPerformance.Views.UserProfileView"
+             xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="{StaticResource WhiteColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!--COLORS -->
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="BlueColor">#227DE7</Color>
+            <Color x:Key="DarkColor">#434853</Color>
+            <Color x:Key="DarkGrayColor">#A1A4A1</Color>
+            <Color x:Key="LightGrayColor">#D6D9D9</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+
+            <!-- FONT SIZES -->
+            <x:Double x:Key="FontSize10">10</x:Double>
+            <x:Double x:Key="FontSize12">12</x:Double>
+            <x:Double x:Key="FontSize13">13</x:Double>
+            <x:Double x:Key="FontSize14">14</x:Double>
+            <x:Double x:Key="FontSize16">16</x:Double>
+            <x:Double x:Key="FontSize18">18</x:Double>
+            <x:Double x:Key="FontSize20">20</x:Double>
+            <x:Double x:Key="FontSize24">24</x:Double>
+            <x:Double x:Key="FontSize26">26</x:Double>
+            <x:Double x:Key="FontSize28">28</x:Double>
+            <x:Double x:Key="FontSize36">36</x:Double>
+
+            <!-- STYLES -->
+
+            <Style x:Key="ProfileStyle" TargetType="imageCircle:CircleImage">
+                <Setter Property="HeightRequest" Value="120" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 12" />
+            </Style>
+
+            <Style x:Key="NameStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize18}"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="LocationStyle" TargetType="Label"
+                   BasedOn="{StaticResource NameStyle}">
+                <Setter Property="FontSize" Value="{StaticResource FontSize14}"/>
+            </Style>
+
+            <Style x:Key="SectionTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkColor}" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize16}"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="12"/>
+            </Style>
+
+            <Style x:Key="AboutTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkGrayColor}" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize14}"/>
+                <Setter Property="Margin" Value="12, 0"/>
+            </Style>
+
+            <Style x:Key="ContactButtontyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource BlueColor}" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize14}"/>
+                <Setter Property="CornerRadius" Value="48"/>
+                <Setter Property="Margin" Value="60, 0"/>
+            </Style>
+
+            <Style x:Key="BlockStyle" TargetType="Label">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 12" />
+            </Style>
+
+            <Style x:Key="SummaryIconStyle" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+
+            <Style x:Key="SummaryTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize13}" />
+                <Setter Property="Opacity" Value="0.75" />
+            </Style>
+
+            <Style x:Key="SummaryValueStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="{StaticResource FontSize18}" />
+            </Style>
+
+            <Style x:Key="FriendImageStyle" TargetType="imageCircle:CircleImage">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="60" />
+            </Style>
+
+            <Style x:Key="FriendNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource FontSize13}" />
+                <Setter Property="MaxLines" Value="2" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="500" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="120" />
+                </Grid.RowDefinitions>
+                <!-- MAIN -->
+                <Grid
+                    Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image 
+                        Grid.Row="0"
+                        Grid.RowSpan="4"
+                        Source="{Binding Profile.Banner}"
+                        Aspect="AspectFill"
+                        BackgroundColor="{StaticResource BlackColor}"/>
+                    <Grid 
+                        Grid.Row="0"
+                        Grid.RowSpan="4"
+                        BackgroundColor="{StaticResource DarkColor}"
+                        Opacity="0.85"/>
+                    <imageCircle:CircleImage    
+                        Grid.Row="1"
+                        Source="{Binding Profile.Picture}"
+                        Aspect="AspectFit"
+                        Style="{StaticResource ProfileStyle}"/>
+                    <StackLayout
+                        Grid.Row="2"
+                        Margin="0, 0, 0, 60">
+                        <Label
+                            Text="{Binding Profile.Name}"
+                            Style="{StaticResource NameStyle}"/>
+                        <Label 
+                            Text="{Binding Profile.Location}"
+                            Style="{StaticResource LocationStyle}"/>
+                    </StackLayout>
+                    <Grid
+                        Grid.Row="3"
+                        HorizontalOptions="Center"
+                        HeightRequest="120"
+                        Margin="0, 0, 0, 48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid
+                            Grid.Column="0"
+                            Margin="6, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image 
+                                Grid.Row="0"
+                                Source="bell"
+                                Style="{StaticResource SummaryIconStyle}"/>
+                            <Label 
+                                Grid.Row="1"
+                                Text="Alerts"
+                                Style="{StaticResource SummaryTitleStyle}"/>
+                            <Label 
+                                Grid.Row="2"
+                                Text="3"
+                                Style="{StaticResource SummaryValueStyle}"/>
+                        </Grid>
+                        <Grid
+                            Grid.Column="1"
+                            Margin="6, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image 
+                                Grid.Row="0"
+                                Source="heart"
+                                Style="{StaticResource SummaryIconStyle}"/>
+                            <Label 
+                                Grid.Row="1"
+                                Text="Places"
+                                Style="{StaticResource SummaryTitleStyle}"/>
+                            <Label 
+                                Grid.Row="2"
+                                Text="12"
+                                Style="{StaticResource SummaryValueStyle}"/>
+                        </Grid>
+                        <Grid
+                            Grid.Column="2"
+                            Margin="6, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image 
+                                Grid.Row="0"
+                                Source="link"
+                                Style="{StaticResource SummaryIconStyle}"/>
+                            <Label 
+                                Grid.Row="1"
+                                Text="Friends"
+                                Style="{StaticResource SummaryTitleStyle}"/>
+                            <Label 
+                                Grid.Row="2"
+                                Text="25"
+                                Style="{StaticResource SummaryValueStyle}"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!-- ABOUT -->
+                <Grid
+                    Grid.Row="1"
+                    Padding="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0"
+                        Text="ABOUT"
+                        Style="{StaticResource SectionTitleStyle}"/>
+                    <Label 
+                        Grid.Row="1"
+                        Text="{Binding Profile.About}"
+                        Style="{StaticResource AboutTextStyle}"/>
+                </Grid>
+                <!-- FRIENDS -->
+                <Grid
+                    Grid.Row="2"
+                    Padding="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0"
+                        Text="FRIENDS"
+                        Style="{StaticResource SectionTitleStyle}"/>
+                    <StackLayout
+                        Grid.Row="1"
+                        Orientation="Horizontal"
+                        BindableLayout.ItemsSource="{Binding Profile.Friends}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <imageCircle:CircleImage        
+                                        Grid.Row="0"
+                                        Source="{Binding Picture}"
+                                        Aspect="AspectFit"
+                                        Style="{StaticResource FriendImageStyle}"/>
+                                    <Label 
+                                        Grid.Row="1"
+                                        Text="{Binding Name}"
+                                        Style="{StaticResource FriendNameStyle}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Grid>
+                <!-- CONTACT -->
+                <Grid
+                    Grid.Row="3"
+                    Padding="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button 
+                        Grid.Row="0"
+                        Text="Contact"
+                        Style="{StaticResource ContactButtontyle}"/>
+                    <Label
+                        Grid.Row="1"
+                        Style="{StaticResource BlockStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Text="Block and Report the User"
+                                    TextColor="{StaticResource BlueColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
