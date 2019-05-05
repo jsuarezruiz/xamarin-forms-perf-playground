@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HttpPerformance.Views.MainView"
+             Title="Http Performance">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListView 
+                Grid.Row="0"
+                ItemsSource="{Binding Results}"
+                SelectionMode="None"/>
+            <Button 
+                Grid.Row="1"
+                Text="Init Test"
+                Command="{Binding InitTestCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
