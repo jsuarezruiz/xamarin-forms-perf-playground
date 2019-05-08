@@ -16,13 +16,17 @@ _(Work in progress)_
 * Visual
 * XAMLC
 
-### XAMLC
-
-![XAMLC](images/xamlcperf.png)
-
 ### HttpClient
 
 ![HttpClient](images/httpclientperf.png)
+
+### IoC
+
+![IoC](images/iocperf.png)
+
+### XAMLC
+
+![XAMLC](images/xamlcperf.png)
 
 ## Copyright and license
 
