@@ -20,6 +20,10 @@ _(Work in progress)_
 
 ![HttpClient](images/httpclientperf.png)
 
+## Images 
+
+![IoC](images/imageperf.png)
+
 ### IoC
 
 ![IoC](images/iocperf.png)
