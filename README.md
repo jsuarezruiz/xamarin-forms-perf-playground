@@ -19,7 +19,25 @@ _(Work in progress)_
 
 ### Fast Renderers
 
+Traditionally, most of the original control renderers on Android are composed of two views:
+* A native control, such as a Button or TextView.
+* A container ViewGroup that handles some of the layout work, gesture handling, and other tasks.
+
+However, this approach has a performance implication in that two views are created for each logical control, which results in a more complex visual tree that requires more memory, and more processing to render on screen.
+
+Fast renderers **reduce the inflation** and rendering costs of a Xamarin.Forms control into a single view. 
+
+Fast renderers are available for the following controls in Xamarin.Forms on Android:
+* Button
+* Image
+* Label
+* Frame
+
+The results:
+
 ![Fast Renderers](images/fastrenderersperf.png)
+
+_**NOTE:** Using a Oneplus 6 device with AOT and XAMLC._
 
 ### HttpClient
 
