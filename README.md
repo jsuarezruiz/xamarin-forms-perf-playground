@@ -12,9 +12,14 @@ _(Work in progress)_
 * IoC
 * Layouts
 * Shell
+* Startup
 * Views
 * Visual
 * XAMLC
+
+### Fast Renderers
+
+![Fast Renderers](images/fastrenderersperf.png)
 
 ### HttpClient
 
@@ -41,6 +46,10 @@ This has two problems:
 ### IoC
 
 ![IoC](images/iocperf.png)
+
+### Startup
+
+![Startup](images/startupperf.png)
 
 ### XAMLC
 
