@@ -37,7 +37,7 @@ The results:
 
 ![Fast Renderers](images/fastrenderersperf.png)
 
-_**NOTE:** Using a Oneplus 6 device with AOT and XAMLC._
+_**NOTE:** Using a Oneplus 6 device with AOT and XAMLC (Release mode)._
 
 ### HttpClient
 
@@ -67,7 +67,11 @@ This has two problems:
 
 ### Startup
 
+Ahead of Time Compilation builds everything upfront, to avoid JIT when first running your app. When this option is enabled, Just In Time (JIT) startup overhead is minimized by precompiling assemblies before runtime. The resulting native code is included in the APK along with the uncompiled assemblies. This results in shorter application startup time, but at the expense of slightly larger APK sizes.
+
 ![Startup](images/startupperf.png)
+
+_**NOTE:** Using a Oneplus 6 device (Release mode)._
 
 ### XAMLC
 
