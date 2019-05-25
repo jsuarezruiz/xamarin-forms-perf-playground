@@ -71,6 +71,19 @@ This has two problems:
 
 ### XAMLC
 
+XAML can be optionally compiled directly into intermediate language (IL) with the XAML compiler (XAMLC).
+
+XAML compilation offers a number of a benefits:
+
+* It performs compile-time checking of XAML, notifying the user of any errors.
+* It removes some of the load and instantiation time for XAML elements.
+* It helps to reduce the file size of the final assembly by no longer including .xaml files.
+
+```
+[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+```
+The result:
+
 ![XAMLC](images/xamlcperf.png)
 
 ## Copyright and license
