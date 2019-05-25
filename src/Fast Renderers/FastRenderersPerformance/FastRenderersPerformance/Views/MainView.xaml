@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastRenderersPerformance.Views.MainView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label 
+                Grid.Row="0"
+                Text="Performance Results"
+                FontSize="18"
+                Margin="10"/>
+            <Frame
+                Grid.Row="1"
+                Padding="10">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="App Startup Time:"
+                            FontSize="12"
+                            WidthRequest="100"/>
+                        <Label 
+                            FontSize="12" 
+                            FontAttributes="Bold"
+                            Text="{Binding StartupTime}"/>
+                    </StackLayout>
+                    <Label 
+                        Text="Timings since startup:"
+                        FontSize="12" 
+                        FontAttributes="Bold"/>
+                    <ListView 
+                        ItemsSource="{Binding Timings}" 
+                        SelectionMode="None"
+                        SeparatorVisibility="None"
+                        HasUnevenRows="True"
+                        Margin="10,0,0,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        HeightRequest="18">
+                                        <Label 
+                                            Text="{Binding EventName}"
+                                            FontSize="12"
+                                            VerticalOptions="Center"
+                                            WidthRequest="220"/>
+                                        <Label
+                                            Text="{Binding ElapsedTime}" 
+                                            FontSize="12"
+                                            VerticalOptions="Center"
+                                            FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+            <Label 
+                Grid.Row="2"
+                Text="Sample View"
+                FontSize="18"
+                Margin="10"/>
+            <Frame
+                Grid.Row="3"
+                Padding="10">
+                <ScrollView>
+                    <StackLayout
+                    BindableLayout.ItemsSource="{Binding Monkeys}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid 
+                                    Padding="10"
+                                    RowSpacing="10" 
+                                    ColumnSpacing="10"
+                                    CompressedLayout.IsHeadless="true">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image 
+									        HeightRequest="66"
+									        HorizontalOptions="CenterAndExpand"
+									        VerticalOptions="CenterAndExpand"
+									        Aspect="AspectFill"
+                                            WidthRequest="66"
+                                            Grid.RowSpan="2"
+                                            Source="{Binding Image}"/>
+                                        <Label 
+                                            Grid.Column="1"
+                                            Text="{Binding Name}"
+									        VerticalOptions="End"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Grid.Row="1"
+                                            VerticalOptions="Start"
+                                            Text="{Binding Location}"/>
+                                    </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
