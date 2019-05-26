@@ -61,6 +61,7 @@ This has two problems:
 
 Other recommendations:
 - Use GZIP (or deflate) where possible.
+- Use Xamarin's Native HttpMessageHandlers.
 
 ## Bindings
 
@@ -72,7 +73,11 @@ Other recommendations:
 
 ### IoC
 
+Comparative performance in the registry and in the dependency resolution of the most used containers when developing with Xamarin.Forms:
+
 ![IoC](images/iocperf.png)
+
+_(Work in progress)_
 
 ### Layouts
 
@@ -93,6 +98,8 @@ Recommendations:
 * The RelativeLayout gives many possibilities but its performance is worse than the FlexLayout.
 
 ### Startup
+
+JIT, AOT and other concepts have an impact on the startup time of the App.
 
 Ahead of Time Compilation builds everything upfront, to avoid JIT when first running your app. When this option is enabled, Just In Time (JIT) startup overhead is minimized by precompiling assemblies before runtime. The resulting native code is included in the APK along with the uncompiled assemblies. This results in shorter application startup time, but at the expense of slightly larger APK sizes.
 
