@@ -57,6 +57,10 @@ This has two problems:
 * Depending on the size of the downloaded file to chain, it will affect more than the necessary time.
 * Higher memory consumption.
 
+## Bindings
+
+![Bindings](images/bindingsperf.png)
+
 ## Images 
 
 ![IoC](images/imageperf.png)
@@ -64,6 +68,10 @@ This has two problems:
 ### IoC
 
 ![IoC](images/iocperf.png)
+
+### Layouts
+
+![Layouts](images/layoutsperf.png)
 
 ### Startup
 
