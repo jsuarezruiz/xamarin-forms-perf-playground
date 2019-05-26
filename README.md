@@ -13,7 +13,6 @@ _(Work in progress)_
 * Layouts
 * Shell
 * Startup
-* Views
 * Visual
 * XAMLC
 
@@ -80,6 +79,14 @@ Comparative performance in the registry and in the dependency resolution of the 
 _(Work in progress)_
 
 ### Layouts
+
+A Layout represents a node in the visual tree. A Layout has properties and events that allow to define its behavior.
+
+It is responsible for managing the location and size of secondary nodes.
+
+Examples: StackLayout, Grid, etc.
+
+![Layouts](images/xamarinformslayouts.png)
 
 The creation of a Xamarin.Forms layout goes through two phases:
 * **Invalidation** cycle: The process of recursive notification to the parent node.
