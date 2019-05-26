@@ -33,6 +33,8 @@ Fast renderers are available for the following controls in Xamarin.Forms on Andr
 * Label
 * Frame
 
+_**NOTE:** [Xamarin.Forms 4 use the Fast Renderers by Default](https://github.com/xamarin/Xamarin.Forms/issues/5724)._
+
 The results:
 
 ![Fast Renderers](images/fastrenderersperf.png)
@@ -57,6 +59,9 @@ This has two problems:
 * Depending on the size of the downloaded file to chain, it will affect more than the necessary time.
 * Higher memory consumption.
 
+Other recommendations:
+- Use GZIP (or deflate) where possible.
+
 ## Bindings
 
 ![Bindings](images/bindingsperf.png)
@@ -71,7 +76,21 @@ This has two problems:
 
 ### Layouts
 
+The creation of a Xamarin.Forms layout goes through two phases:
+* **Invalidation** cycle: The process of recursive notification to the parent node.
+* **Layout** cycle: After invalidating, we proceed to the reorganization of elements marked as _"invalidated"_.
+
+In the following chart we have the time in milliseconds of **UpdateChildrenLayout** in each Layout. The example to render:
+
+The result:
+
 ![Layouts](images/layoutsperf.png)
+
+Recommendations:
+* Do not use StackLayout for just one child.
+* Do not use StackLayout when you can use Grid.
+* Do not nest several StackLayouts when you can use a Grid.
+* The RelativeLayout gives many possibilities but its performance is worse than the FlexLayout.
 
 ### Startup
 
