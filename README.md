@@ -92,6 +92,12 @@ The creation of a Xamarin.Forms layout goes through two phases:
 * **Invalidation** cycle: The process of recursive notification to the parent node.
 * **Layout** cycle: After invalidating, we proceed to the reorganization of elements marked as _"invalidated"_.
 
+The Invalidation cycle:
+![Invalidation](images/layoutinvalidation.png)
+
+The Layout cycle:
+![Layout](images/layout.png)
+
 In the following chart we have the time in milliseconds of **UpdateChildrenLayout** in each Layout. The example to render:
 
 The result:
