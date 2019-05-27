@@ -34,10 +34,12 @@ namespace IoCPerformance.ViewModels
             AutofacPerformance autofacPerformanceTest = new AutofacPerformance(NumberOfTests);
             TinyIocPerformance tinyIocPerformanceTest = new TinyIocPerformance(NumberOfTests);
             UnityPerformance unityPerformanceTest = new UnityPerformance(NumberOfTests);
+            SplatPerformance splatPerformance = new SplatPerformance(NumberOfTests);
 
             RunTests(autofacPerformanceTest, "AutoFac");
             RunTests(tinyIocPerformanceTest, "TinyIoC");
             RunTests(unityPerformanceTest, "Unity");
+            RunTests(splatPerformance, "Splat");
         }
 
         private void RunTests(IPerformance performanceTest, string testName)
