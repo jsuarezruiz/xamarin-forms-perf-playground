@@ -110,6 +110,12 @@ The Grid organizes child elements into rows and columns. It allows to create com
 
 The size of each row and column is important, and affects performance. We must take care of the use of cells and rows.
 
+To consider:
+- Using Auto in ColumnDefinition or RowDefinition, the invalidation of one of the children Views causes the chain invalidation of the visual tree of the grid.
+- Using fixed values in ColumnDefinition or RowDefinition, the Grid ignores any notification of invalidation of its children.
+- Using * in ColumnDefinition or RowDefinition, the Grid ignores any notification of invalidation of the children.
+
+
 **StackLayout**
 
 The StackLayout organizes views in a one-dimensional line ("stack"), either horizontally or vertically. Views in a StackLayout can be sized based on the space in the layout using layout options. Positioning is determined by the order views were added to the layout and the layout options of the views.
