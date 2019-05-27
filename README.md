@@ -112,6 +112,8 @@ Ahead of Time Compilation builds everything upfront, to avoid JIT when first run
 
 ![Startup](images/startupperf.png)
 
+![Startup Sizes](images/startupsizes.png)
+
 _**NOTE:** Using a Oneplus 6 device (Release mode)._
 
 ### XAMLC
