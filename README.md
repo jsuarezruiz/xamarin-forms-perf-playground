@@ -104,7 +104,27 @@ The result:
 
 ![Layouts](images/layoutsperf.png)
 
-Recommendations:
+**Grid**
+
+The Grid organizes child elements into rows and columns. It allows to create complex structures without the need for large nests.
+
+The size of each row and column is important, and affects performance. We must take care of the use of cells and rows.
+
+**StackLayout**
+
+The StackLayout organizes views in a one-dimensional line ("stack"), either horizontally or vertically. Views in a StackLayout can be sized based on the space in the layout using layout options. Positioning is determined by the order views were added to the layout and the layout options of the views.
+
+It can lead to **excessive nesting**.
+
+The invalidation of a child View causes the chain invalidation in the visual tree until the StackLayout.
+
+**RelativeLayout**
+
+The RelativeLayout organizes the child elements based on relationships between the different elements and the container. Ideal when the size or positioning should be dynamic and adapt to different conditions.
+
+It is the layout with lowest performance. High CPU consumption.
+
+Other Recommendations:
 * Do not use StackLayout for just one child.
 * Do not use StackLayout when you can use Grid.
 * Do not nest several StackLayouts when you can use a Grid.
