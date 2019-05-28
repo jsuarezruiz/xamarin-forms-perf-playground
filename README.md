@@ -148,6 +148,30 @@ Ahead of Time Compilation builds everything upfront, to avoid JIT when first run
 
 _**NOTE:** Using a Oneplus 6 device (Release mode)._
 
+### Visual
+
+Material Design is an opinionated design system created by Google, that prescribes the size, color, spacing, and other aspects of how views and layouts should look and behave.
+
+Xamarin.Forms Material Visual can be used to apply Material Design rules to Xamarin.Forms applications, creating applications that look identical, or largely identical, on iOS and Android. When Material Visual is enabled, supported views adopt the same design cross-platform, creating a unified look and feel. This is achieved with material renderers, that apply the Material Design rules.
+
+Material renderers are currently included in the [Xamarin.Forms.Visual.Material](https://www.nuget.org/packages/Xamarin.Forms.Visual.Material/) NuGet package for the following views:
+
+* Button
+* Entry
+* Frame
+* ProgressBar
+* DatePicker
+* TimePicker
+* Picker
+* ActivityIndicator
+* Editor
+* Slider
+* Stepper
+
+Functionally, the material renderers are no different to the default renderers. But ... what about the performance?.
+
+![Visual](images/visualperf.png)
+
 ### XAMLC
 
 XAML can be optionally compiled directly into intermediate language (IL) with the XAML compiler (XAMLC).

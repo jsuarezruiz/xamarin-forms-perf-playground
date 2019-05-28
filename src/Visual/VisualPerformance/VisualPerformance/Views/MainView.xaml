@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:ProfilerPage
+    xmlns:base="clr-namespace:VisualPerformance.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="VisualPerformance.Views.MainView" 
+    Visual="Material">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="SignInFrameStyle" TargetType="Frame">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+            <Style x:Key="SignInPanelStyle" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+            <Style x:Key="SignInTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="OrangeRed" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
+            </Style>
+
+            <Style x:Key="SignInButtontyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="OrangeRed" />
+                <Setter Property="Margin" Value="0, 0, 0, 12" />
+            </Style>
+            
+            <Style x:Key="PerfLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="Margin" Value="6" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="DarkGray">
+            <Frame 
+                Style="{StaticResource SignInFrameStyle}">
+                <StackLayout 
+                    Style="{StaticResource SignInPanelStyle}">
+                    <Label 
+                        Text="Sign in"
+                        Style="{StaticResource SignInTitleStyle}" />
+                    <Entry 
+                        Placeholder="Username" />
+                    <Entry 
+                        IsPassword="True"
+                        Placeholder="Password" />
+                    <Button 
+                        Text="Sign in" 
+                        Style="{StaticResource SignInButtontyle}"/>
+                </StackLayout>
+            </Frame>
+            <Label
+                Text="{Binding Timing}"
+                Style="{StaticResource PerfLabelStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</base:ProfilerPage>
