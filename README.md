@@ -64,6 +64,8 @@ Other recommendations:
 
 ## Bindings
 
+Don't use bindings for content that can be set statically. For example, setting Button.Text = "Accept" has less overhead than binding Button.Text to a ViewModel string property with value "Accept".
+
 ![Bindings](images/bindingsperf.png)
 
 ## Images 
