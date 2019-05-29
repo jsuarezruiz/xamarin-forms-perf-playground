@@ -64,13 +64,16 @@ Other recommendations:
 
 ## Bindings
 
-Don't use bindings for content that can be set statically. For example, setting Button.Text = "Accept" has less overhead than binding Button.Text to a ViewModel string property with value "Accept".
+**Don't use bindings for content that can be set statically**. For example, setting Button.Text = "Accept" has less overhead than binding Button.Text to a ViewModel string property with value "Accept".
 
 ![Bindings](images/bindingsperf.png)
 
 ## Images 
 
-![IoC](images/imageperf.png)
+Displaying image resources can greatly increase the app's memory footprint.
+Next, we make a comparison of memory consumption between the use of images with Xamarin.Forms, with FFImageLoading and with GlideX.
+
+![Images](images/imageperf.png)
 
 ### IoC
 
@@ -136,6 +139,8 @@ Other Recommendations:
 * Do not use StackLayout for just one child.
 * Do not use StackLayout when you can use Grid.
 * Do not nest several StackLayouts when you can use a Grid.
+* When using a Grid, try to ensure that as few rows and columns as possible are set to Auto size. Each auto-sized row or column will cause the layout engine to perform additional layout calculations.
+* When using an AbsoluteLayout, avoid using the AbsoluteLayout.AutoSize property whenever possible.
 * The RelativeLayout gives many possibilities but its performance is worse than the FlexLayout.
 
 ### Startup
