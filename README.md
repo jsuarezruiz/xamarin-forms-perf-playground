@@ -180,6 +180,14 @@ Functionally, the material renderers are no different to the default renderers. 
 ![Visual](images/visualperf.png)
 
 ![Visual CreateRenderer](images/visualperf-createrenderer.png)
+  
+All current Visual renderers with Material use the **Fast Renderers** model. This makes most Material renderers faster than the default ones. In the case of the Entry, in Material have more layers, animations, etc. It is the only case that gets worse (for now).
+
+The Visual performance tests have been made with:
+- Release Mode, AOT, XAMLC (for startup times).
+- Average of 5 times.
+- Physical device (Oneplus 6).
+
 ### XAMLC
 
 XAML can be optionally compiled directly into intermediate language (IL) with the XAML compiler (XAMLC).
