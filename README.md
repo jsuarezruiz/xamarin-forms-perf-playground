@@ -179,6 +179,7 @@ Functionally, the material renderers are no different to the default renderers. 
 
 ![Visual](images/visualperf.png)
 
+![Visual CreateRenderer](images/visualperf-createrenderer.png)
 ### XAMLC
 
 XAML can be optionally compiled directly into intermediate language (IL) with the XAML compiler (XAMLC).
