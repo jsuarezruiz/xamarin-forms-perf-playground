@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:ProfilerPage
+    xmlns:base="clr-namespace:VisualPerformance.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="VisualPerformance.Views.MainView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="PerfFrameStyle" TargetType="Frame">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+            <Style x:Key="PerfPanelStyle" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+            <Style x:Key="SignInTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="OrangeRed" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
+            </Style>
+
+            <Style x:Key="PerfButtontyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="OrangeRed" />
+                <Setter Property="Margin" Value="0, 0, 0, 12" />
+            </Style>
+
+            <Style x:Key="PerfLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="Margin" Value="6" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="DarkGray">
+            <Frame 
+                Visual="Material"
+                Style="{StaticResource PerfFrameStyle}">
+                <StackLayout 
+                    Style="{StaticResource PerfPanelStyle}">
+                    <Label 
+                        Visual="Material"
+                        Text="Label1"/>
+                    <Label 
+                        Visual="Material"
+                        Text="Label2"/>
+                    <ProgressBar 
+                        Visual="Material"
+                        ProgressColor="Orange"
+                        Progress="0.5"/>
+                    <ProgressBar
+                        Visual="Material"
+                        ProgressColor="Orange"
+                        Progress="0.2"/>
+                    <Slider
+                        Visual="Material" />
+                    <Slider
+                       />
+                    <Entry
+                        Visual="Material" />
+                    <Entry
+                        Visual="Material" />
+                    <Button  
+                        Visual="Material"
+                        AutomationId="materialButton"
+                        Text="Sign in" 
+                        Style="{StaticResource PerfButtontyle}"/>
+                    <Button  
+                        Visual="Material"
+                        AutomationId="defaultButton"
+                        Text="Click me to see performance" 
+                        Clicked="Handle_Clicked"
+                        Style="{StaticResource PerfButtontyle}"/>
+                </StackLayout>
+            </Frame>
+            <Label
+                Text="{Binding Timing}"
+                Style="{StaticResource PerfLabelStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</base:ProfilerPage>
