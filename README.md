@@ -75,6 +75,8 @@ Next, we make a comparison of memory consumption between the use of images with 
 
 ![Images](images/imageperf.png)
 
+In Xamarin.Forms 4.0 there are improvements related to image management. You can find a sample and Excel with comparative data between 3.6 and 4.0. After several measurements and making averages, the image memory consumption has dropped by 15% on average.
+
 ### IoC
 
 Comparative performance in the registry and in the dependency resolution of the most used containers when developing with Xamarin.Forms:
