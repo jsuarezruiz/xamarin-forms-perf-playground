@@ -16,6 +16,40 @@ _(Work in progress)_
 * Visual
 * XAMLC
 
+## Bindings
+
+**Don't use bindings for content that can be set statically**. For example, setting Button.Text = "Accept" has less overhead than binding Button.Text to a ViewModel string property with value "Accept".
+
+![Bindings](images/bindingsperf.png)
+
+## CollectionView
+
+And before the CollectionView arrived...
+
+**ListView**
+
+ListViews are often used to display much more data than can fit onscreen. 
+
+Xamarin.Forms permits ListView cell re-use through the ListViewCachingStrategy enumeration, which has the following values:
+
+* RetainElement. It is the default value to guarantee compatibility with previous versions of Xamarin.Forms. The ListView creates a new cell for each element in the list.
+* RecycleElement.
+* RecycleElementAndDataTemplate.
+
+Other recommendations:
+* In certain cases additional content is required to the ListView in the top and/or botton part. It is recommended to use the HeaderTemplate and FooterTemplate properties for this.
+* Wrapping the ListView control in a ScrollView breaks virtualization!.
+* It is recommended to use IList<T> as ItemsSource instead of IEnumerable.
+* If RecycleElemement is used, performance is increased by removing Binding from the cell and using OnBindingContextChanged.
+
+**CollectionView**
+
+The CollectionView is a flexible and performant view for presenting lists of data using different layout specifications.
+
+In addition to allowing different layouts, the CollectionView has better performance than the ListView, but... how much does it improve the performance?.
+
+![CollectionView](images/collectionviewperf.png)
+
 ### Fast Renderers
 
 Traditionally, most of the original control renderers on Android are composed of two views:
@@ -61,12 +95,6 @@ This has two problems:
 Other recommendations:
 - Use GZIP (or deflate) where possible.
 - Use Xamarin's Native HttpMessageHandlers.
-
-## Bindings
-
-**Don't use bindings for content that can be set statically**. For example, setting Button.Text = "Accept" has less overhead than binding Button.Text to a ViewModel string property with value "Accept".
-
-![Bindings](images/bindingsperf.png)
 
 ## Images 
 

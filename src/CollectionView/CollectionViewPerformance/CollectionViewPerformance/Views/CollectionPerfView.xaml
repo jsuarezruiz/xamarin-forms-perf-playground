@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:ProfilerPage
+    xmlns:base="clr-namespace:CollectionViewPerformance.Views.Base"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CollectionViewPerformance.Views.CollectionPerfView"
+    Title="CollectionView Perf">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label 
+                Grid.Row="0"
+                Text="{Binding Timing}"
+                Margin="6"/>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                            Padding="10" 
+                            RowSpacing="10" 
+                            ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image 
+								HeightRequest="66"
+								HorizontalOptions="CenterAndExpand"
+								VerticalOptions="CenterAndExpand"
+								Aspect="AspectFill"
+                                WidthRequest="66"
+                                Grid.RowSpan="2"
+                                Source="{Binding Image}"/>
+                            <Label 
+                                Grid.Column="1"
+                                Text="{Binding Name}"
+								VerticalOptions="End"/>
+                            <Label
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                VerticalOptions="Start"
+                                Text="{Binding Location}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</base:ProfilerPage>
