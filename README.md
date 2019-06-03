@@ -49,6 +49,7 @@ The CollectionView is a flexible and performant view for presenting lists of dat
 In addition to allowing different layouts, the CollectionView has better performance than the ListView, but... how much does it improve the performance?.
 
 ![CollectionView](images/collectionviewperf.png)
+![CollectionView Create Renderer](images/collectionviewperf-createrenderer.png)
 
 ### Fast Renderers
 
