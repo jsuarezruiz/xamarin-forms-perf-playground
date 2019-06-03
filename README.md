@@ -49,7 +49,12 @@ The CollectionView is a flexible and performant view for presenting lists of dat
 In addition to allowing different layouts, the CollectionView has better performance than the ListView, but... how much does it improve the performance?.
 
 ![CollectionView](images/collectionviewperf.png)
+
 ![CollectionView Create Renderer](images/collectionviewperf-createrenderer.png)
+
+One of the biggest changes between ListView and  CollectionView is the removal of wrapping content in a  ViewCell. This allows for significant gains to performance, especially on Android, while remaining familiar to what you’ve done before when using the ListView.
+
+While the impact on the startup time is not noticeable (is more reduced), can appreciate a noticeable difference in memory consumption.
 
 ### Fast Renderers
 

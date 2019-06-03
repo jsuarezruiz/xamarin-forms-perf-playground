@@ -17,7 +17,9 @@
                 Margin="6"/>
             <CollectionView
                 Grid.Row="1"
-                ItemsSource="{Binding Monkeys}">
+                ItemsSource="{Binding Monkeys}"
+                ItemSizingStrategy="MeasureFirstItem"
+                SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid 
