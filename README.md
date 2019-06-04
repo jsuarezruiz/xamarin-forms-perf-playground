@@ -179,6 +179,18 @@ Other Recommendations:
 * When using an AbsoluteLayout, avoid using the AbsoluteLayout.AutoSize property whenever possible.
 * The RelativeLayout gives many possibilities but its performance is worse than the FlexLayout.
 
+### Shell
+
+Xamarin.Forms Shell reduces the complexity of mobile application development by providing the fundamental features that most mobile applications require. This includes a common navigation user experience, a URI-based navigation scheme, and an integrated search handler.
+
+In addition, Shell applications benefit from an increased rendering speed, and reduced memory consumption.
+
+![Shell](images/shellperf.png)
+
+_**NOTE:** Chart using an Android device in Release mode and AOT._
+
+In the case of Android, the startup time does not improve (for now) the default renderers while the memory consumption is slightly better.
+
 ### Startup
 
 JIT, AOT and other concepts have an impact on the startup time of the App.
