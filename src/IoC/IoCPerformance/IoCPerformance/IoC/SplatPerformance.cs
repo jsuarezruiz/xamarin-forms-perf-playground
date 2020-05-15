@@ -21,15 +21,20 @@ namespace IoCPerformance.IoC
 
         public void Registration()
         {
-            for (int i = 0; i < _numberOfTests; i++)
+            for (int i = 0; i < _numberOfTests + 1; i++)
             {
                 _mutableContainer.Register(() => new TestService(), contract: $"Class{i}");
             }
         }
 
+        public void FirstResolve()
+        {
+            _container.GetService<TestService>($"Class0");
+        }
+
         public void Resolve()
         {
-            for (int i = 0; i < _numberOfTests; i++)
+            for (int i = 1; i < _numberOfTests + 1; i++)
             {
                 _container.GetService<TestService>($"Class{i}");
             }

@@ -28,22 +28,31 @@ namespace IoCPerformance.ViewModels
 
         private void ExecuteTest()
         {
-            NumberOfTests = 25;
+            NumberOfTests = 5000;
             _watch = new Stopwatch();
 
             AutofacPerformance autofacPerformanceTest = new AutofacPerformance(NumberOfTests);
             TinyIocPerformance tinyIocPerformanceTest = new TinyIocPerformance(NumberOfTests);
             UnityPerformance unityPerformanceTest = new UnityPerformance(NumberOfTests);
             SplatPerformance splatPerformance = new SplatPerformance(NumberOfTests);
+            DependencyResolver dependencyResolver = new DependencyResolver(NumberOfTests);
+            NetCoreServiceProvider netCoreServiceProvider = new NetCoreServiceProvider(NumberOfTests);
 
             RunTests(autofacPerformanceTest, "AutoFac");
             RunTests(tinyIocPerformanceTest, "TinyIoC");
             RunTests(unityPerformanceTest, "Unity");
             RunTests(splatPerformance, "Splat");
+            RunTests(dependencyResolver, "Xamarin.Forms Dependency Resolver");
+            RunTests(netCoreServiceProvider, "Microsoft.Net Dependency Injection");
         }
 
         private void RunTests(IPerformance performanceTest, string testName)
         {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
             try
             {
                 Output += string.Format("Starting performance test for {0}", testName) + Environment.NewLine;
@@ -52,13 +61,21 @@ namespace IoCPerformance.ViewModels
 
                 performanceTest.Registration();
 
-                Output += string.Format("IOC Registration Time for {0} tests: {1} ms", NumberOfTests, _watch.Elapsed.Milliseconds.ToString()) + Environment.NewLine;
+                Output += string.Format("Avg. IOC Registration Time for {0} tests: {1} ms", NumberOfTests, ((double)_watch.Elapsed.Milliseconds / (double)NumberOfTests).ToString()) + Environment.NewLine;
+
+                _watch.Restart();
+
+                performanceTest.FirstResolve();
+
+                Output += string.Format("IOC First Resolution Time: {0} ms", _watch.Elapsed.Milliseconds.ToString()) + Environment.NewLine;
 
                 _watch.Restart();
 
                 performanceTest.Resolve();
 
-                Output += string.Format("IOC Resolution Time for {0} tests: {1} ms", NumberOfTests, _watch.Elapsed.Milliseconds.ToString()) + Environment.NewLine;
+
+                Output += string.Format("Total IOC Resolution Time for {0} tests: {1} ms", NumberOfTests, _watch.Elapsed.Milliseconds) + Environment.NewLine;
+                Output += string.Format("Avg. IOC Resolution Time for {0} tests: {1} ms", NumberOfTests, ((double)_watch.Elapsed.Milliseconds / (double)NumberOfTests).ToString()) + Environment.NewLine;
             }
             finally
             {
