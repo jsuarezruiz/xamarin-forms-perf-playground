@@ -5,5 +5,7 @@
         void Registration();
 
         void Resolve();
+
+        void FirstResolve();
     }
 }

@@ -18,15 +18,20 @@ namespace IoCPerformance.IoC
 
         public void Registration()
         {
-            for (int x = 0; x < _numberOfTests; x++)
+            for (int x = 0; x < _numberOfTests + 1; x++)
             {
                 _unityContainer.RegisterType<ITestService, TestService>(string.Format("Class{0}", x));
             }
         }
 
+        public void FirstResolve()
+        {
+            _unityContainer.Resolve<ITestService>(string.Format("Class{0}", "0"));
+        }
+
         public void Resolve()
         {
-            for (int x = 0; x < _numberOfTests; x++)
+            for (int x = 1; x < _numberOfTests + 1; x++)
             {
                 _unityContainer.Resolve<ITestService>(string.Format("Class{0}", x));
             }
